@@ -1,19 +1,19 @@
-name: reuse 
+name: reuse
 on:
-    workflow_call:
-        inputs:
-            artifact-name:
-                description: the name of the deployable artifact files
-                required: false
-                default: dist
-                type: string
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: the name of the deployable artifact files
+        required: false
+        default: dist
+        type: string
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
-        steps:
-         -  name: get artifact
-            uses: actions\download-artifact@v4
-            with:
-                name: ${{ inputs.artifact-name }}
-         -  name: output information
-            run: echo "Deploying & uploading..."
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+      - name: output information
+        run: echo "Deploying & uploading..."
