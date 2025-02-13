@@ -1,4 +1,4 @@
-name: mtrix demo
+name: marix demo
 on: push
 jobs:
     build:
@@ -6,6 +6,12 @@ jobs:
             matrix:
                 node-version: [14,16,18]
                 operating-sytem: [ubuntu-latest, windows-latest]
+                include:
+                 -  node-version: 12
+                    operating-system: ubuntu-latest
+                exclude:
+                 -  node-version: 14
+                    operating-system: ubuntu-latest
         runs-on: ${{ matrix.operating-sytem }}
         steps:
             - name: get code
