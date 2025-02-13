@@ -68,6 +68,6 @@ jobs:
           path: dist
   deploy:
     needs: build
-    uses: .github/workflows/reuse.yml
+    uses: sample-react-actions/.github/workflows/reuse.yml@main
     with:
         artifact-name: dist-files
